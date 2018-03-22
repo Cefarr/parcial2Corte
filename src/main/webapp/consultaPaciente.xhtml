@@ -1,23 +1,43 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+    >
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:o="http://omnifaces.org/ui"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title></title>
     </h:head>
     <h:body>
-        <h1>TITULO</h1>
+        <h1>Bienvenido, COnsulte su historial medico</h1>
         <h:form>
             <!--Por favor no cambiar el 'id':-->
-            <p:inputText id="identificacion_paciente"></p:inputText>
+            <p:inputText id="identificacion_paciente" value ="#{PacientesBean.id}"></p:inputText>
             <p:selectOneMenu value="#{mb.tipoIdentificacion}" >
                 <f:selectItems value="#{mb.tiposIdentificacion}" />
             </p:selectOneMenu>
             <!--Por favor no cambiar el 'value':-->
             <p:commandButton value="Consultar"></p:commandButton>
+            
+            
+            <p:dataTable var="car" value="#{mb.getPasxId(id)}">
+                
+                <p:column headerText="Identidicacion">
+                    <h:outputText value="#{mb.getPasxId().id}" />
+                </p:column>
+
+                <p:column headerText="NOmbre">
+                    <h:outputText value="#{mb.getPasxId().nombre}" />
+                </p:column>
+
+                <p:column headerText="Fecha de nacimineto">
+                    <h:outputText value="#{mb.getPasxId().fechaNacimiento}" />
+                </p:column>
+
+                <p:column headerText="Consultas">
+                    <h:outputText value="#{mb.getPasxId().consultas}" />
+                </p:column>
+            </p:dataTable>
         </h:form>
     </h:body>
 </html>

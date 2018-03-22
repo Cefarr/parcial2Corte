@@ -21,4 +21,15 @@
         FROM
             PACIENTES as p
     </select>
+    
+        <select id="pacienteById" resultMap="PacienteResult">
+        SELECT
+            p.id,
+            p.tipo_id,
+            p.fecha_nacimiento,
+            p.nombre
+        FROM
+            PACIENTES as p
+            where p.id =#{ide} AND p.tipo_id=#{tip}
+    </select>
 </mapper>

@@ -2,7 +2,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:o="http://omnifaces.org/ui"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Consulta de Pacientes</title>
@@ -10,6 +9,19 @@
     <h:body>
         <h1>Consulta de menores que han padecido enfermedad contagiosa</h1>
         <h:form>
+            <p:dataTable var="car" value="#{mb.dataEnferme}" sortOrder="ASCENDING">
+                <p:column headerText="Identidicacion">
+                    <h:outputText value="#{car.id}" />
+                </p:column>
+
+                <p:column headerText="Tipo Identificacion">
+                    <h:outputText value="#{car.tipo_id}" />
+                </p:column>
+
+                <p:column headerText="Fecha de nacimineto">
+                    <h:outputText value="#{car.fechaNacimiento}" />
+                </p:column>
+            </p:dataTable>
 
         </h:form>
     </h:body>
